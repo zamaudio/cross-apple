@@ -17,7 +17,7 @@ wget -c http://ppa.launchpad.net/flosoft/cross-apple/ubuntu/pool/main/a/apple-x8
 wget -c http://ppa.launchpad.net/flosoft/cross-apple/ubuntu/pool/main/c/ccache-lipo/ccache-lipo_1.0-0flosoft3_amd64.deb
 
 # xar
-if [[ -x "xar" ]]
+if [[ `which xar` ]]
 then
         echo "Found xar"
 else
