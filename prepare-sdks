@@ -6,7 +6,7 @@ then
 	rm Bom Payload Scripts PackageInfo
 	cp -a SDKs/MacOSX10.4u.sdk apple-uni-sdk-10.4u-dummy
 	cd apple-uni-sdk-10.4u-dummy
-	dpkg-buildpackage -uc -b
+	dpkg-buildpackage -uc -b -tc
 	cd ..
 else
 	echo "*** Missing 10.4 Apple SDK ***"
@@ -18,7 +18,7 @@ then
 	rm Bom Payload Scripts PackageInfo
 	cp -a SDKs/MacOSX10.5.sdk apple-uni-sdk-10.5-dummy
 	cd apple-uni-sdk-10.5-dummy
-	dpkg-buildpackage -uc -b
+	dpkg-buildpackage -uc -b -tc
 	cd ..
 else
 	echo "*** Missing 10.5 Apple SDK ***"
@@ -30,7 +30,7 @@ then
 	rm Bom Payload Scripts PackageInfo
 	cp -a SDKs/MacOSX10.6.sdk apple-uni-sdk-10.6-dummy
 	cd apple-uni-sdk-10.6-dummy
-	dpkg-buildpackage -uc -b
+	dpkg-buildpackage -uc -b -tc
 	cd ..
 else
 	echo "*** Missing 10.6 Apple SDK ***"
