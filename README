@@ -1,0 +1,36 @@
+==== cross-apple ====
+
+This is an *almost* complete cross compiling Apple toolchain for 
+Debian x86_64 in binary form.  
+It supports ppc, i386 and x86_64 apple targets.
+
+It is missing the official Apple SDKs since it's probably not legal
+to redistribute them in this form.
+
+However, if you are an "Apple developer" and have access to the SDKs
+you can install this toolchain in one step by copying your SDKs 
+into this directory and running the install script as root.
+
+This is intended as a way for developers who are comfortable with linux
+to cross-compile OSX compatible binaries without having to switch 
+operating systems to do so.
+
+You still need access to a Mac to test your binaries.
+
+At least one of the official 10.5 or 10.6 SDKs are required.
+
+	Put 
+		MacOSX10.4.Universal.pkg 
+		MacOSX10.5.pkg
+		MacOSX10.6.pkg
+	
+	from one of the official Xcode dmgs into this directory then run:
+
+	sudo ./install-cross-apple
+
+:)
+
+
+=== DISCLAIMER ===
+
+	No Apple SDKs are provided in this repository.

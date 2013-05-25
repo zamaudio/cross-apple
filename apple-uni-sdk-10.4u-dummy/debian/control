@@ -1,0 +1,13 @@
+Source: apple-uni-sdk-10.4u
+Section: devel
+Priority: extra
+Maintainer: John Smith <john@smith>
+Build-Depends: cdbs, debhelper (>= 7.0.50~)
+Standards-Version: 3.8.4
+
+Package: apple-uni-sdk-10.4u
+Architecture: any
+Replaces: apple-uni-sdk
+Conflicts: apple-uni-sdk
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: MacOSX 10.4u SDK for apple cross compiler

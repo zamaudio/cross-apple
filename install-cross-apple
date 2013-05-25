@@ -1,0 +1,48 @@
+#!/bin/bash
+
+# Download
+
+# deps
+apt-get install quilt ccache cdbs build-essential debhelper
+
+# x86
+wget -c http://ppa.launchpad.net/flosoft/cross-apple/ubuntu/pool/main/a/apple-x86-gcc/apple-x86-gcc_4.2.1~5646.1flosoft2_amd64.deb
+wget -c http://ppa.launchpad.net/flosoft/cross-apple/ubuntu/pool/main/a/apple-x86-odcctools/apple-x86-odcctools_758.159-0flosoft11_amd64.deb
+
+# ppc
+wget -c http://ppa.launchpad.net/flosoft/cross-apple/ubuntu/pool/main/a/apple-x86-gcc/apple-ppc-gcc_4.2.1~5646.1flosoft2_amd64.deb
+wget -c http://ppa.launchpad.net/flosoft/cross-apple/ubuntu/pool/main/a/apple-x86-odcctools/apple-ppc-odcctools_758.159-0flosoft11_amd64.deb
+
+# ccache
+wget -c http://ppa.launchpad.net/flosoft/cross-apple/ubuntu/pool/main/c/ccache-lipo/ccache-lipo_1.0-0flosoft3_amd64.deb
+
+# xar
+if [[ -x "xar" ]]
+then
+        echo "Found xar"
+else
+        wget -c http://xar.googlecode.com/files/xar-1.5.2.tar.gz
+        tar zxf xar-1.5.2.tar.gz
+        cd xar-1.5.2
+        ./configure && make && make install
+        cd ..
+fi
+
+
+# Install
+
+# Binary utilities
+dpkg -i apple-x86-odcctools_758.159-0flosoft11_amd64.deb &&
+dpkg -i apple-ppc-odcctools_758.159-0flosoft11_amd64.deb &&
+dpkg -i ccache-lipo_1.0-0flosoft3_amd64.deb &&
+
+# Apple SDKs (not provided)
+./prepare-sdks &&
+dpkg -i apple-uni-sdk-10*.deb &&
+rm -f apple-uni-sdk-10*.deb apple-uni-sdk-10*.changes &&
+
+# Toolchains (ppc, i386, x86_64)
+dpkg -i apple-x86-gcc_4.2.1~5646.1flosoft2_amd64.deb &&
+dpkg -i apple-ppc-gcc_4.2.1~5646.1flosoft2_amd64.deb &&
+
+echo "Success!"
