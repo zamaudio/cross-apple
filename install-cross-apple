@@ -1,9 +1,11 @@
 #!/bin/bash
 
+set -e
+
 # Download
 
 # deps
-apt-get install quilt ccache cdbs build-essential debhelper
+apt-get install libssl0.9.8 quilt ccache cdbs build-essential debhelper
 
 # x86
 wget -c http://ppa.launchpad.net/flosoft/cross-apple/ubuntu/pool/main/a/apple-x86-gcc/apple-x86-gcc_4.2.1~5646.1flosoft2_amd64.deb
@@ -32,20 +34,20 @@ fi
 # Install
 
 # Binary utilities
-dpkg -i apple-x86-odcctools_758.159-0flosoft11_amd64.deb &&
-dpkg -i apple-ppc-odcctools_758.159-0flosoft11_amd64.deb &&
-dpkg -i ccache-lipo_1.0-0flosoft3_amd64.deb &&
+dpkg -i apple-x86-odcctools_758.159-0flosoft11_amd64.deb 
+dpkg -i apple-ppc-odcctools_758.159-0flosoft11_amd64.deb 
+dpkg -i ccache-lipo_1.0-0flosoft3_amd64.deb 
 
 # Apple SDKs (not provided)
-./prepare-sdks &&
-dpkg -i apple-uni-sdk-10*.deb &&
-rm -f apple-uni-sdk-10*.deb apple-uni-sdk-10*.changes &&
-rm -fr apple-uni-sdk-10.4u-dummy/MacOSX10.4u.sdk &&
-rm -fr apple-uni-sdk-10.5-dummy/MacOSX10.5.sdk &&
-rm -fr apple-uni-sdk-10.6-dummy/MacOSX10.6.sdk &&
+./prepare-sdks 
+dpkg -i apple-uni-sdk-10*.deb 
+rm -f apple-uni-sdk-10*.deb apple-uni-sdk-10*.changes 
+rm -fr apple-uni-sdk-10.4u-dummy/MacOSX10.4u.sdk 
+rm -fr apple-uni-sdk-10.5-dummy/MacOSX10.5.sdk 
+rm -fr apple-uni-sdk-10.6-dummy/MacOSX10.6.sdk 
 
 # Toolchains (ppc, i386, x86_64)
-dpkg -i apple-x86-gcc_4.2.1~5646.1flosoft2_amd64.deb &&
-dpkg -i apple-ppc-gcc_4.2.1~5646.1flosoft2_amd64.deb &&
+dpkg -i apple-x86-gcc_4.2.1~5646.1flosoft2_amd64.deb 
+dpkg -i apple-ppc-gcc_4.2.1~5646.1flosoft2_amd64.deb 
 
 echo "Success!"
