@@ -17,18 +17,31 @@ operating systems to do so.
 
 You still need access to a Mac to test your binaries.
 
-At least one of the official 10.5 or 10.6 SDKs are required.
+You need the official 10.5 SDK.
 
 	Put 
-		MacOSX10.4.Universal.pkg 
 		MacOSX10.5.pkg
-		MacOSX10.6.pkg
-	
+			
 	from one of the official Xcode dmgs into this directory then run:
 
 	sudo ./install-cross-apple
 
 :)
+
+I have tested the cross compiler on a fairly simple case (i386) 
+and it successfully compiles and links under linux, and executes on osx with 
+i386 dynamic libs that were precompiled on a real mac for 10.6.
+
+I have provided suitable scripts that switch your compiler environment between
+default linux gcc and the cross-apple compiler, targeted at i386 builds.
+
+To enable the cross compiler:
+	
+	. cross-apple-env
+
+To reenable the default linux gcc:
+	
+	. normal-env
 
 
 === DISCLAIMER ===
