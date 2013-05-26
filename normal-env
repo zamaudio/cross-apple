@@ -1,0 +1,8 @@
+#!/bin/bash
+
+export CXX=g++
+export CC=gcc
+export AR=ar
+export CFLAGS=""
+export CXXFLAGS=""
+export LDFLAGS=""

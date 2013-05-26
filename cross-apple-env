@@ -1,0 +1,8 @@
+#!/bin/bash
+
+export CXX="i686-apple-darwin10-g++"
+export CC="i686-apple-darwin10-gcc"
+export AR="i686-apple-darwin10-ar"
+export CFLAGS="-m32"
+export CXXFLAGS="-m32"
+export LDFLAGS="-m32"
